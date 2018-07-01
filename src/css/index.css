@@ -2,6 +2,11 @@
     margin: 0;
     padding: 0;
 }
+html{
+    max-width: 540px;
+    margin: auto;
+}
+
 [v-cloak]{
     display: none;
 }
@@ -129,4 +134,14 @@ a{
     background: rgba(8, 8, 8, 0.3);
     border: 1px solid #999;
     color: #fff;
+}
+
+@media screen and (min-width: 540px){
+    .container-main{
+        padding: 100px;
+    }
+    .container-main .container-list-item{
+        height: 150px!important;
+        line-height: 150px!important;
+    }
 }
