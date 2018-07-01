@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <title>web前端锦囊</title>
+    <link rel="stylesheet" href="src/css/index.css">
+</head>
+<body>
+<div id="app" v-cloak>
+    <div class="container-main" v-if="isMain">
+        <div class='container-list'>
+            <div class='container-list-item' data-id='{{item.id}}'
+               v-for="item in pageType"
+               :href="'/list.html?id=' + item.id"
+               :key="item.id" @click="jumpList(item)">
+                {{item.name}}
+            </div>
+        </div>
+    </div>
+    <div class='container' v-else>
+        <div class='container-list'>
+            <a v-for="item in groupList" :href="item.link" :key="item.name"
+               class="container-list-item">
+                <span>
+                    <img v-if="item.img" :src="item.img">
+                    <span v-else>{{item.name[0]}}</span>
+                </span>
+                <span>
+                    <span>{{item.name}}</span>
+                    <span>{{item.link}}</span>
+                </span>
+            </a>
+        </div>
+    </div>
+    <div class="fixed-bottom" @click="backIndex">
+        <span>返回</span>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.min.js"></script>
+<script src="src/js/sourceMap.js"></script>
+<script src="src/js/main.js"></script>
+</body>
+</html>
